@@ -1,5 +1,8 @@
 package dev.hotel.service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -30,4 +33,14 @@ public class ClientService {
 		
 		return clientRepo.save(newClient);
 	}
+	
+	/** Affiche le client selon son uuid
+	 * @param uuid
+	 * @return optional de client
+	 */
+	public Optional<Client> findClientByUuid (UUID uuid) {
+		return clientRepo.findById(uuid);
+		
+	}
+	
 }
